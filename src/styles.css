@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Mulish", sans-serif;
+}
+
+html {
+  font-size: 62.5%; /*1rem = 10px*/
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/*
+HEADER
+*/
+.header-container {
+  background-color: #5d62ee;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20rem;
+}
+
+.header-container h1 {
+  font-size: xx-large;
+  transition: all 0.8s ease;
+}
+.header-container h1:hover {
+  text-shadow: 1px 1px 6px #fff;
+}
+
+/*
+FILTERS
+*/
+.filters-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  background-color: rgb(151, 17, 17);
+  height: 4.5rem;
+}
+
+.filters-container button {
+  background-color: #a77af0;
+  box-shadow: 0 0 3pt 2pt rgb(80 25 207 / 30%);
+  color: #fff;
+  transition: all 0.8s ease;
+  width: 9rem;
+  height: 3rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.filters-container button:hover {
+  background-color: rgb(199, 153, 229, 0.7);
+  text-shadow: 1px 1px 6px #fff;
+}
+
+.inputsDate input {
+  background-color: #a77af0;
+  transition: all 0.8s ease;
+  color: #fff;
+  margin-right: 1rem;
+  height: 3rem;
+  width: 20rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+}
+.inputsDate input:hover {
+  background-color: rgb(199, 153, 229, 0.7);
+  text-shadow: 1px 1px 6px #fff;
+}
+
+.selects > select {
+  margin-right: 1rem;
+}
+.selects select {
+  width: 12rem;
+  background-color: #a77af0;
+  transition: all 0.8s ease;
+  color: #fff;
+  height: 3rem;
+  width: 15rem;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.selects select:hover {
+  background-color: rgb(199, 153, 229, 0.7);
+  text-shadow: 1px 1px 6px #fff;
+}
+
+/*
+HOTEL CARDS
+*/
+.hotelCards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.hotelCards-container {
+  width: 25rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border: 0.1rem solid #bdbdbd;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 4pt 1pt #9d9d9d;
+}
+
+.hotelCards-photo {
+  width: 100%;
+}
+
+.hotelCards-title {
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+}
+
+.hotelCards-description {
+  /* Arriba | Derecha | Abajo | Izquierda */
+  margin: 1.5rem 1rem 1rem 1rem;
+  text-align: justify;
+  line-height: 1.7rem;
+}
+
+.hotelCards-location {
+  display: flex;
+  justify-content: stretch;
+  margin: 0 0 1rem 1rem;
+}
+.hotelCards-size-container {
+  display: flex;
+  margin-left: 1rem;
+}
+.hotelCards-size {
+  display: flex;
+  height: 3rem;
+}
+
+.hotelCards-location-box,
+.hotelCards-size-box {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5d62ee;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.hotelCards-price {
+  margin-left: 1rem;
+  background-color: #5d62ee;
+  color: #fff;
+}
+
+.hotelCards-claro {
+  color: rgb(180, 180, 180);
+}
+
+.hotelCards-S-color {
+  color: #fff;
+}
+.hotelCards-location-icon {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.hotelCards-location-place,
+.hotelCards-size-description {
+  color: #fff;
+  background-color: #bdbdbd;
+  border-radius: 0 0.5rem 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.hotelCards-button {
+  background-color: #5d62ee;
+  /* box-shadow: 0 0 3pt 2pt rgb(80 25 207 / 30%); */
+  color: #fff;
+  transition: all 0.8s ease;
+  width: 100%;
+  height: 3rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.hotelCards-button:hover {
+  background-color: rgb(199, 153, 229, 0.7);
+}
