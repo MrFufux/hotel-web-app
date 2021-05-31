@@ -149,6 +149,7 @@ HOTEL CARDS
 .hotelCards-size {
   display: flex;
   height: 3rem;
+  margin-bottom: 1rem;
 }
 
 .hotelCards-location-box,
