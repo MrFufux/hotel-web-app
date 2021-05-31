@@ -22,7 +22,7 @@ function HotelInfo() {
   };
   //Price
   const onChangePriceGlobal = (actualEvent) => {
-    setPrice(actualEvent.target.value);
+    setPrice(parseInt(actualEvent.target.value, 10));
   };
   //Size
   const onChangeSizeGlobal = (actualEvent) => {
@@ -43,15 +43,16 @@ function HotelInfo() {
       .filter((element) => {
         if (price !== initialStatePrice) {
           // console.log(element.price, price);
-          return element.price === parseInt(price, 10);
+          return element.price === price;
         }
         return element;
       })
       //por size
       .filter((element) => {
+        //Small Hotel
         if (rooms !== initialStateSize) {
           console.log(element.rooms, rooms);
-          return element.rooms === parseInt(rooms, 10);
+          return element.rooms === rooms;
         }
         return element;
       });
