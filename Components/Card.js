@@ -2,8 +2,8 @@ import React from "react";
 import { faMapMarker, faBed } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const moneyComparative = (p) => {
-  switch (p) {
+const comparative = (price) => {
+  switch (price) {
     case 1:
       return (
         <p className="hotelCards-S-color">
@@ -56,7 +56,7 @@ export default function Card(props) {
             </div>
             <p className="hotelCards-size-description">{props.rooms} Rooms</p>
           </div>
-          <div className="hotelCards-price">{moneyComparative}</div>
+          <div className="hotelCards-price">{comparative(props.price)}</div>
         </div>
         <button className="hotelCards-button">Reserve Now!</button>
       </div>

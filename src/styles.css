@@ -164,9 +164,13 @@ HOTEL CARDS
 }
 
 .hotelCards-price {
-  margin-left: 1rem;
+  /* Arriba | Derecha | Abajo | Izquierda */
+  margin: 0.5rem 0 0 1rem;
   background-color: #5d62ee;
+  font-size: 1.5rem;
   color: #fff;
+  width: 4.5rem;
+  height: 2rem;
 }
 
 .hotelCards-claro {
@@ -205,4 +209,9 @@ HOTEL CARDS
 }
 .hotelCards-button:hover {
   background-color: rgb(199, 153, 229, 0.7);
+}
+
+.Nothing-to-Show {
+  margin-top: 20rem;
+  font-size: xx-large;
 }

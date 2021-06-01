@@ -26,7 +26,7 @@ function HotelInfo() {
   };
   //Size
   const onChangeSizeGlobal = (actualEvent) => {
-    setRooms(actualEvent.target.value);
+    setRooms(parseInt(actualEvent.target.value, 10));
   };
 
   // funciones de filtrado.
@@ -88,27 +88,29 @@ function HotelInfo() {
           </select>
           <select value={rooms} onChange={onChangeSizeGlobal}>
             <option value={initialStateSize}>{initialStateSize}</option>
-            <option value="Small Hotel">Small Hotel</option>
-            <option value="Medium Hotel">Medium Hotel</option>
-            <option value="Large Hotel">Large Hotel</option>
+            <option value="1">Small Hotel</option>
+            <option value="2">Medium Hotel</option>
+            <option value="3">Large Hotel</option>
           </select>
           <button>Clear All</button>
         </div>
       </div>
       <div className="hotelCards">
-        {listFilter.length > 0
-          ? listFilter.map((hotelCard) => (
-              <Card
-                name={hotelCard.name}
-                photo={hotelCard.photo}
-                description={hotelCard.description}
-                rooms={hotelCard.rooms}
-                city={hotelCard.city}
-                country={hotelCard.country}
-                price={hotelCard.price}
-              />
-            ))
-          : "Nothing to Show"}
+        {listFilter.length > 0 ? (
+          listFilter.map((hotelCard) => (
+            <Card
+              name={hotelCard.name}
+              photo={hotelCard.photo}
+              description={hotelCard.description}
+              rooms={hotelCard.rooms}
+              city={hotelCard.city}
+              country={hotelCard.country}
+              price={hotelCard.price}
+            />
+          ))
+        ) : (
+          <div className="Nothing-to-Show">"Nothing to Show :c"</div>
+        )}
       </div>
     </div>
   );
