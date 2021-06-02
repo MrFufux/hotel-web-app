@@ -99,6 +99,7 @@ function HotelInfo() {
         {listFilter.length > 0 ? (
           listFilter.map((hotelCard) => (
             <Card
+              key={hotelCard.slug}
               name={hotelCard.name}
               photo={hotelCard.photo}
               description={hotelCard.description}
