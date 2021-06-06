@@ -8,30 +8,46 @@ const initialStatePrice = "Any Price";
 const initialStateSize = "Any Size";
 
 function HotelInfo() {
-  //estado del select countries
+  //Dates State
+  const [dateFrom, setDateFrom] = useState();
+  const [dateTo, setDateTo] = useState();
+  //Country select state
   const [country, setCountry] = useState(initialStateCountry);
-  //estado del select price
+  //Price select state
   const [price, setPrice] = useState(initialStatePrice);
-  //estado del select Size
-  const [rooms, setRooms] = useState(initialStateSize);
+  //Size select state
+  const [size, setSize] = useState(initialStateSize);
 
-  //Change Handlers
+  /*
+   *Event Handlers
+   */
+  //Date
+  const eventDateFromGlobal = (actualEvent) => {
+    setDateFrom(actualEvent.target.value);
+  };
+  const eventDateToGlobal = (actualEvent) => {
+    setDateTo(actualEvent.target.value);
+  };
   //Country
   const onChangeCountryGlobal = (actualEvent) => {
     setCountry(actualEvent.target.value);
   };
   //Price
   const onChangePriceGlobal = (actualEvent) => {
-    setPrice(parseInt(actualEvent.target.value, 10));
+    setPrice(actualEvent.target.value);
   };
   //Size
   const onChangeSizeGlobal = (actualEvent) => {
-    setRooms(parseInt(actualEvent.target.value, 10));
+    setSize(actualEvent.target.value);
   };
 
-  // funciones de filtrado.
+  /*
+   *Filters
+   */
   const filterBy = () => {
-    //por country
+    const checkIn = new Date(dateFrom).getTime();
+    const checkOut = new Date(dateTo).getTime();
+    //Country Filter
     const newList = hotelsData
       .filter((element) => {
         if (country !== initialStateCountry) {
@@ -39,20 +55,48 @@ function HotelInfo() {
         }
         return element;
       })
-      //por price
+      //Price Filter
       .filter((element) => {
+        if (price === initialStatePrice) {
+          return element;
+        }
         if (price !== initialStatePrice) {
-          // console.log(element.price, price);
-          return element.price === price;
+          return element.price === Number(price);
         }
         return element;
       })
-      //por size
+      //Size Filter
       .filter((element) => {
-        //Small Hotel
-        if (rooms !== initialStateSize) {
-          console.log(element.rooms, rooms);
-          return element.rooms === rooms;
+        if (size === initialStateSize) {
+          return element;
+        }
+        if (size === "small hotel") {
+          if (element.rooms <= 10) {
+            console.log(element.rooms, size);
+            return element.rooms === size;
+          }
+        } else if (size === "medium hotel") {
+          if (element.rooms > 10 && element.rooms <= 20) {
+            console.log(element.rooms, size);
+            return element.rooms === size;
+          }
+        } else if (size === "large hotel") {
+          if (element.rooms > 20) {
+            console.log(element.rooms, size);
+            return element.rooms === size;
+          }
+        }
+        return element;
+      })
+      //Date Filter
+      .filter((element) => {
+        if (dateFrom && dateTo) {
+          if (dateFrom <= dateTo) {
+            const dateHotel =
+              checkIn <= element.availabilityTo &&
+              checkOut >= element.availabilityFrom;
+            return dateHotel;
+          }
         }
         return element;
       });
@@ -61,14 +105,23 @@ function HotelInfo() {
 
   let listFilter = filterBy();
 
-  //boton
+  /**
+   * Clear All Button
+   */
+  const resetFilters = () => {
+    // setDateFrom(new Date());
+    // setDateTo(new Date());
+    setCountry(initialStateCountry);
+    setPrice(initialStatePrice);
+    setSize(initialStateSize);
+  };
 
   return (
     <div>
       <div className="filters-container">
         <div className="inputsDate">
-          <input type="date" />
-          <input type="date" />
+          <input onChange={eventDateFromGlobal} type="date" />
+          <input onChange={eventDateToGlobal} type="date" />
         </div>
 
         <div className="selects">
@@ -81,18 +134,18 @@ function HotelInfo() {
           </select>
           <select value={price} onChange={onChangePriceGlobal}>
             <option value={initialStatePrice}>{initialStatePrice}</option>
-            <option value="1">$</option>
-            <option value="2">$$</option>
-            <option value="3">$$$</option>
-            <option value="4">$$$$</option>
+            <option value={1}>$</option>
+            <option value={2}>$$</option>
+            <option value={3}>$$$</option>
+            <option value={4}>$$$$</option>
           </select>
-          <select value={rooms} onChange={onChangeSizeGlobal}>
+          <select value={size} onChange={onChangeSizeGlobal}>
             <option value={initialStateSize}>{initialStateSize}</option>
-            <option value="1">Small Hotel</option>
-            <option value="2">Medium Hotel</option>
-            <option value="3">Large Hotel</option>
+            <option value="small hotel">Small Hotel</option>
+            <option value="medium hotel">Medium Hotel</option>
+            <option value="large hotel">Large Hotel</option>
           </select>
-          <button>Clear All</button>
+          <button onClick={resetFilters}>Clear All</button>
         </div>
       </div>
       <div className="hotelCards">
@@ -117,5 +170,3 @@ function HotelInfo() {
   );
 }
 export default HotelInfo;
-
-//

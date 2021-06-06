@@ -111,7 +111,7 @@ HOTEL CARDS
 }
 
 .hotelCards-container {
-  width: 25rem;
+  width: 40rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -128,23 +128,26 @@ HOTEL CARDS
 .hotelCards-title {
   margin-top: 1.5rem;
   margin-left: 1rem;
+  font-size: 2.5rem;
 }
 
 .hotelCards-description {
   /* Arriba | Derecha | Abajo | Izquierda */
-  margin: 1.5rem 1rem 1rem 1rem;
+  margin: 1.5rem 2rem 1rem 2rem;
   text-align: justify;
   line-height: 1.7rem;
+  font-size: 1.5rem;
 }
 
 .hotelCards-location {
   display: flex;
   justify-content: stretch;
-  margin: 0 0 1rem 1rem;
+  margin: 0 0 1rem 2rem;
 }
 .hotelCards-size-container {
   display: flex;
-  margin-left: 1rem;
+  /* Arriba | Derecha | Abajo | Izquierda */
+  margin: 0 0 1rem 2rem;
 }
 .hotelCards-size {
   display: flex;
@@ -165,12 +168,12 @@ HOTEL CARDS
 
 .hotelCards-price {
   /* Arriba | Derecha | Abajo | Izquierda */
-  margin: 0.5rem 0 0 1rem;
+  margin: 0.2rem 0 0 1rem;
   background-color: #5d62ee;
-  font-size: 1.5rem;
   color: #fff;
-  width: 4.5rem;
-  height: 2rem;
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
 }
 
 .hotelCards-claro {
@@ -179,6 +182,8 @@ HOTEL CARDS
 
 .hotelCards-S-color {
   color: #fff;
+  font-size: 1.4rem;
+  padding-top: 0.4rem;
 }
 .hotelCards-location-icon {
   color: #fff;
@@ -188,12 +193,18 @@ HOTEL CARDS
 .hotelCards-location-place,
 .hotelCards-size-description {
   color: #fff;
-  background-color: #bdbdbd;
+  background-color: #bbbbbb;
   border-radius: 0 0.5rem 0.5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
+}
+.hotelCards-location-place {
+  font-size: 1.4rem;
+}
+.hotelCards-size-description {
+  font-size: 1.4rem;
 }
 
 .hotelCards-button {
